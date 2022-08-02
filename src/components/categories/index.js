@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import { activeCategory } from '../../store/categories'
 import { Button, Typography, Card } from '@mui/material';
 import { Product } from '../product/index';
 
 const Category = (props) => {
 
-  const { categories } = props
-  console.log(props);
+  let categories = useSelector(state => state.categoriesReducer.categories);
 
   let listCategory = categories.map((category, idx) => (
     <Button

@@ -36,7 +36,7 @@ export const activeCategory = (categories) =>{
   console.log('store-categories',categories);
   return{
     type: 'Active',
-    payload: categories.name,
+    payload: categories,
   }
 }
 

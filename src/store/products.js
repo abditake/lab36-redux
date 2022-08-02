@@ -11,6 +11,7 @@ const initialState = {
       category: 'Cards',
       name: 'LeBron\'s 2003 Exquisite rookie card',
       price: 'Starting: $1.5M',
+      description:'Limited edition Rookie card of four time NBA Champion and Finals Mvp Lebron James. He was also Awarded League MVP four times.',
       inventoryCount: 1,
     },
     {
