@@ -6,21 +6,23 @@ import { Product } from '../product/index';
 const Category = (props) => {
 
   const { categories } = props
-  console.log(categories);
+  console.log(props);
 
-  let listCategory = categories.map((categories, idx) => (
-    <Card
+  let listCategory = categories.map((category, idx) => (
+    <Button
       key={`category-${idx}`}
       variant="outlined"
-    >{categories.name}</Card>
+      onClick={() => props.activeCategory(category.name)}
+    >{category.name}</Button>
   ))
 
   return (
     <>
       <Typography variant="h4" component="div" gutterBottom>
-        Browse our Categories
+        All Categories
       </Typography>
       {listCategory}
+      <Product/>
     </>
   );
 }
@@ -30,7 +32,7 @@ const mapStateToProps = ({ categoriesReducer }) => {
     categories: categoriesReducer.categories,
   }
 }
-
+// if we want to use it as apart of our reducer
 const mapDispatchToProps = {
   activeCategory,
 }
