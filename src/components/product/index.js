@@ -1,23 +1,19 @@
 import { connect } from 'react-redux';
-import { Products } from '../../store/products'
 import { Button, Typography, Card } from '@mui/material';
 
 
-const Product = ( props ) => {
+export const Product = ( props ) => {
 
   const { products  } = props
 
   
-  let listProd = products.map((categories, idx) => (
-    <Card
-      key={`category-${idx}`}
-      variant="outlined"
-    >{categories.name}</Card>
-  ))
 
+
+  console.log(products);
+  // work in progress following lecture
   return (
     <>
-      {listProd}
+      <p> hello </p>
     </>
   );
 }
@@ -29,7 +25,8 @@ const mapStateToProps = ({ productsReducer }) => {
 }
 
 const mapDispatchToProps = {
-  Products,
+  Product,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
+
