@@ -18,10 +18,10 @@
 ## Start of Phase 2: Combined Reducers
 - In phase 2, we will be adding the “Add to Cart” feature to our application, which will allow our users to not only browse items in the store, but also select them and have them persist in their “shopping cart” for later purchase.
 
-  - [ ] As a user, I want to choose from products in the list and add them to my shopping cart
-  - [ ] As a user, I want to see the products that I’ve added to my shopping cart so that
-  - [ ] As a user, I want to change the quantity of items I intend to purchase in my shopping cart
-  - [ ] As a user, I want to be able to remove an item from my shopping cart
+  - [x] As a user, I want to choose from products in the list and add them to my shopping cart
+  - [x] As a user, I want to see the products that I’ve added to my shopping cart so that
+  - [x] As a user, I want to change the quantity of items I intend to purchase in my shopping cart
+  - [x] As a user, I want to be able to remove an item from my shopping cart
 
 
 ### `npm start`

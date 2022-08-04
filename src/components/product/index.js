@@ -1,5 +1,5 @@
-import { connect, useSelector } from 'react-redux';
-import { activeCategory, addToCart } from '../../store/actions'
+import { useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../../store/actions'
 import { useDispatch } from 'react-redux';
 import { Button, Typography, Card, Box } from '@mui/material';
 
@@ -66,13 +66,11 @@ export default function Product() {
       <CardActions disableSpacing>
         <Button onClick={() => dispatch(addToCart(product))} sx={{ border: 1 , ml:'1em',  }} >
           <CustomCart >
-            Add to Cart
+            add to Cart
           </CustomCart>
         </Button>
-        <Button sx={{ border: 1 , mr:'1em'}} >
-          <CustomCart >
-            Add to Cart
-          </CustomCart>
+        <Button onClick={() => dispatch(removeFromCart(product))}sx={{ border: 1 , mr:'1em'}} >
+            remove from cart
         </Button>
       </CardActions>
     </Card>
