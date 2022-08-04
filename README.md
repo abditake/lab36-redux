@@ -1,4 +1,4 @@
-# Lab-36: Application State with Redux
+# Lab Series 36-39: Storefront
 <details>
 
 <summary>

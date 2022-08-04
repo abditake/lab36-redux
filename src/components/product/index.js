@@ -1,6 +1,10 @@
 import { connect, useSelector } from 'react-redux';
-import { activeCategory } from '../../store/categories'
+import { activeCategory, addToCart } from '../../store/actions'
+import { useDispatch } from 'react-redux';
 import { Button, Typography, Card, Box } from '@mui/material';
+
+
+import CustomCart from '@mui/icons-material/AddShoppingCartTwoTone';
 
 // import { useState } from 'react'
 
@@ -18,39 +22,39 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import { Products } from '../../store/products';
 
 
 
 
-export const Product = (props) => {
-  
+
+
+export default function Product() {
   // expanding business you could also put this in a reducer 
   // const { expanded, setExpanded } = useState(false);
 
+  let activeCategory = useSelector(state => state.activeCategory.payload)
 
-  
+  console.log('using props', activeCategory);
 
-  let activeCategory = useSelector(state => state.categoriesReducer.activeCategory);
-
-  let products = useSelector(state => state.productsReducer.products)
-
+  let dispatch = useDispatch();
 
 
-  console.log(activeCategory);
-  console.log('state product in productjs', products);
+  let product = useSelector(state => state.products)
 
-  let selectedProduct = products.filter(product => product.category === activeCategory)
+  console.log('using props', product);
+
+  let products = product.filter(product => 
+    product.category === activeCategory)
+
+  // console.log('selected', selected);
 
 
+  console.log(products)
 
-  let selectedProductMap = selectedProduct.map(product => (
-    <Card sx={{ maxWidth: 345 }}>
+  let selectedProduct = products.map((product,idx) => (
+    <Card key={idx} sx={{ maxWidth: 365, border: 1, margin:'auto' }}>
       <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={product.name}
         subheader={product.price}
       />
@@ -60,36 +64,25 @@ export const Product = (props) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
+        <Button onClick={() => dispatch(addToCart(product))} sx={{ border: 1 , ml:'1em',  }} >
+          <CustomCart >
+            Add to Cart
+          </CustomCart>
+        </Button>
+        <Button sx={{ border: 1 , mr:'1em'}} >
+          <CustomCart >
+            Add to Cart
+          </CustomCart>
+        </Button>
       </CardActions>
     </Card>
   ))
-
-
-
-
-  console.log('q', selectedProductMap);
-
-
-
-
-
   // work in progress following lecture
   return (
     <Box>
-      {selectedProductMap}
+      {selectedProduct}
     </Box>
   );
 }
 
-const mapStateToProps = ({ productsReducer }) => {
-  return {
-    products: productsReducer.products,
-  }
-}
 
-const mapDispatchToProps = {
-  activeCategory,
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
