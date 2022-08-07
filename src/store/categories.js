@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { addToCart } from './actions';
 // add displayName 
 
 const initialState = [

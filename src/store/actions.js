@@ -14,6 +14,7 @@ export const addToCart = (product) => {
   }
 }
 
+
 export const removeFromCart = (product) => {
   return {
     type: 'Remove-Cart',

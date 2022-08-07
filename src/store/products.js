@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { addToCart } from './actions';
 
 const initialState = [
   {
@@ -60,6 +61,11 @@ export const getProducts = () => async(dispatch , getState) => {
   dispatch(setProducts(response.data));
 }
 
+export const updateProducts = () => async(dispatch , getState) => {
+  let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
+
+  dispatch(setProducts(response.data));
+}
 
 export const setProducts = (data) => {
 return {

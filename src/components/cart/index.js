@@ -4,17 +4,11 @@ import { useSelector } from 'react-redux';
 
 import { Box, List, Drawer, Card, Typography, CardContent, Container } from '@mui/material';
 
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 
 const SimpleCart = () => {
-
-
-  let history = useNavigate();
-
-    function handleClick() {
-      history.push("/cart");
-    }
 
 
 
@@ -43,10 +37,10 @@ const SimpleCart = () => {
 
   )
   return (
-    <>
-    <Typography textAlign={'center'} onClick={handleClick}> My Cart</Typography>
+    <Link to={'/cart'}>
+    <Typography textAlign={'center'}>My Cart</Typography>
     {cartMap}
-    </>
+    </Link>
   )
 }
 

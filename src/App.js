@@ -9,26 +9,17 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Details from './components/details';
 
 
 function App(props) {
-  
+
   return (
     <BrowserRouter>
-    <Routes>
-    <Route path='/' element={
-      <>
-      <Header/>
-      <Category />
-      <Footer/>
-      </>
-    }>
-    </Route>
-          <Route path="/cart" element={
-            <>
-            <CartDetails/>
-            </>
-          } />
+      <Routes>
+        <Route path='/' element={[<Header />, <Category />, <Footer />]} />
+        <Route path={`/details`} element={[<Header />, <Details/>, <Footer />]} />
+        <Route path={`/cart`} element={[<Header />, <CartDetails />, <Footer />]} />
       </Routes>
     </BrowserRouter>
   );
