@@ -6,7 +6,6 @@ export default function cartReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
     case 'Add-Cart':
-      console.log('state in cart',state)
       return [...state, payload]
     case 'Remove-Cart':
       return state.filter(product => product.name !== action.payload.name)

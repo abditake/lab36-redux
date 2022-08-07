@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 // add displayName 
 
 const initialState = [
@@ -19,21 +19,34 @@ const initialState = [
 
 
 
+
+
 export default function categoryReducer(state = initialState, action) {
   // won't need to do action.type or action.payload
   let { type, payload } = action;
+  console.log('main', payload)
   switch (type) {
-
+    case 'Api-Categories':
+    return payload.results
     default:
       return state
   }
 }
 
-// export const activeCategory = (categories) =>{
-//   console.log('store-categories',categories);
-//   return{
-//     type: 'Active',
-//     payload: categories,
-//   }
-// }
+
+export const getCategories = () => async(dispatch , getState) => {
+  let response = await axios.get('https://api-js401.herokuapp.com/api/v1/categories');
+
+
+  dispatch(setCategories(response.data));
+}
+
+
+export const setCategories = (data) => {
+  console.log(data);
+return {
+  type: 'Api-Categories',
+  payload: data
+}
+}
 

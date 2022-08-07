@@ -4,11 +4,23 @@ import { useSelector } from 'react-redux';
 
 import { Box, List, Drawer, Card, Typography, CardContent, Container } from '@mui/material';
 
+import { useNavigate } from 'react-router';
+
 
 const SimpleCart = () => {
+
+
+  let history = useNavigate();
+
+    function handleClick() {
+      history.push("/cart");
+    }
+
+
+
   const cart = useSelector(state => state.cart);
 
-  console.log(cart);
+  // console.log(cart);
 
   let cartMap = cart.map((product, idx) =>
 
@@ -32,7 +44,7 @@ const SimpleCart = () => {
   )
   return (
     <>
-    <Typography> My Cart</Typography>
+    <Typography textAlign={'center'} onClick={handleClick}> My Cart</Typography>
     {cartMap}
     </>
   )

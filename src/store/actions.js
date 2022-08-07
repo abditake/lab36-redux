@@ -1,7 +1,7 @@
+import axios from 'axios'
 
-
-export const activeCategory = (categories) =>{
-  return{
+export const activeCategory = (categories) => {
+  return {
     type: 'Active',
     payload: categories,
   }
@@ -18,5 +18,13 @@ export const removeFromCart = (product) => {
   return {
     type: 'Remove-Cart',
     payload: product,
+  }
+}
+
+
+export const Products = (products) => {
+  return {
+    type: 'Products',
+    payload: products,
   }
 }
